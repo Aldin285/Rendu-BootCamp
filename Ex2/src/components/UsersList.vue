@@ -22,14 +22,6 @@
       <h3>No users found in database</h3>
     </div>
 
-    <!-- Fetching One user -->
-     <h1>--------------------------------------------</h1>
-    <h1>Fetching One user By ID</h1>
-    <ul>
-      <li>Username: {{ oneUser?.username }}</li>
-      <li>Username: {{ oneUser?.password }}</li>
-    </ul>
-
   </div>
 </template>
 
@@ -44,11 +36,6 @@ const error = ref<string | null>(null)
 // All users
 const users = ref<IUser[]>([])
 
-// One user
-const oneUser = ref<IUser>()
-
-
-
 async function load() {
   loading.value = true
   try {
@@ -56,9 +43,6 @@ async function load() {
     const data = await fetchRequests.fetchUsers()
     users.value = Array.isArray(data) ? data : []
 
-    // Fetch user by ID
-    oneUser.value = await fetchRequests.fetchSingleUser('68ed0998f630add8fcf89f22')
-    
   } catch (err: any) {
     error.value = err.message || 'Failed to load users'
   } finally {
@@ -66,7 +50,6 @@ async function load() {
   }
 }
 
-// ✅ Call the function (you forgot the parentheses)
 onMounted(() => {
   load()
 })

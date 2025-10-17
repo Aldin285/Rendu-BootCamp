@@ -15,6 +15,8 @@
     <h1>---------------------------------</h1>
     <h1>La liste des users</h1>
     <usersList />
+    <CreateUser/>
+    <FetchUser/>
     
 </div>
 </template>
@@ -28,7 +30,8 @@
     import usersDetails from "./components/usersDetails.vue"
     import UsersList from "./components/UsersList.vue"
     import { useUsers } from "./composables/useusers"
-
+    import CreateUser from "./components/CreateUser.vue"
+    import FetchUser from "./components/FetchUser.vue"
    
 
     const userStore = useUserStore()

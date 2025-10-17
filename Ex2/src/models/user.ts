@@ -13,4 +13,10 @@ const userSchema = new Schema <IUser>({
   isActive: { type: Boolean, default: false },
 })
 
+export interface UserModel{
+   _id?: string
+  username: string
+  password: string
+  isActive: boolean
+}
 export default mongoose.models.User ||  mongoose.model<IUser>('User', userSchema)

@@ -4,24 +4,6 @@ import { createUser, fetchUsers } from "@/api/users";
 
 export function userManagement(){
 
-    // Ajouter un user
-    const error = ref(null)
-     
-    let newUser = ref<IUser | null>(null)
-
-    async function addNewUser(user: IUser) {
-        error.value = null
-        try {
-            const createdUser = await createUser(user)
-            newUser.value = createdUser
-    }catch(err:any){
-        error.value = err.message
-    }
-    }
-    return{addNewUser,newUser,error}
-
-
-
     // Fetch les users de la bdd
 
     let allUsers = ref<IUser[]>([])

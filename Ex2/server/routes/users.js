@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ message: "Username and password required" })
     }
 
-    const checkUser = User.find()
+    const checkUser = await User.findOne({username})
      if (checkUser) {
       return res.status(400).json({ message: "User already exists" })
     }
