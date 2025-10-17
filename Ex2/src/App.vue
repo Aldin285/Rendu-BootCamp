@@ -9,7 +9,7 @@
     
     <h1>---------------------------------</h1>
     <h1>Le composant usersDetails :</h1>
-    <input type="number" v-model="idInput" placeholder="Enter ID" />
+    <input type="number" v-model="idInput" value="1" placeholder="Enter ID" />
     <br/>
     <usersDetails :userId="parseInt(idInput)" />
     <h1>---------------------------------</h1>
@@ -17,6 +17,7 @@
     <usersList />
     <CreateUser/>
     <FetchUser/>
+    <DeleteUser/>
     
 </div>
 </template>
@@ -32,6 +33,7 @@
     import { useUsers } from "./composables/useusers"
     import CreateUser from "./components/CreateUser.vue"
     import FetchUser from "./components/FetchUser.vue"
+    import DeleteUser from "./components/DeleteUser.vue"
    
 
     const userStore = useUserStore()

@@ -6,7 +6,7 @@
      
     <h1>Fetching One user By ID:</h1>
     <br/>
-    <input v-model="userId" type="text" placeholder="User ID"  maxlength="5" required>
+    <input v-model="userId" type="text" placeholder="User ID"  required>
      <br/>
     <button @click="FetchUser">Register</button>
     <br/>
@@ -15,7 +15,7 @@
       <li>password: {{ oneUser?.password }}</li>
     </ul>
 
-    <h1 v-if="errorMessage">{{ errorMessage }}</h1>
+    <p class="red" v-if="errorMessage">{{ errorMessage }}</p>
     <h1>--------------------------------------------</h1>
   </div>
 </template>
@@ -47,3 +47,8 @@ async function FetchUser() {
 }
 
 </script>
+<style scoped>
+    .red{
+        color: red;
+    }
+</style>
