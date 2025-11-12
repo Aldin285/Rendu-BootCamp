@@ -34,7 +34,7 @@ export async function fetchSingleUser(id:String) {
 }
 
 // Delete user by id
-export async function deleteUser(id:String) {
+export async function deleteUser(id: string) {
   try{
     const response = await api.delete(`/users/${id}`)
       return response.data

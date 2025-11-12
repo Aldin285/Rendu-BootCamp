@@ -18,6 +18,7 @@
 import { ref } from 'vue'
 import * as fetchRequests from '../api/users'
 import type { IUser } from '../models/user'
+import { json } from 'express'
 
 const errorMessage = ref<string | null>(null)
 
@@ -25,15 +26,13 @@ const users = ref<IUser[]>([])
 
 // One user
 const oneUser = ref<IUser>()
-const userId = ref()
-
+const userId = ref<string>('')
 
 async function DeleteUser() {
   try {
-    // delete user by ID
-    oneUser.value = await fetchRequests.deleteUser(String(userId))
-    console.log("user deleted")
-    
+    oneUser.value = await fetchRequests.deleteUser(userId.value)
+    console.log('user deleted', oneUser.value)
+    errorMessage.value = null
   } catch (err: any) {
     errorMessage.value = err.message || 'Failed to delete user'
   }
